@@ -1,0 +1,128 @@
+INFO - 2023-11-29 12:02:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:03:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:05:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:05:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:05:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:31:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-29 12:31:56 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `si...', 0)
+#1 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `si...')
+#2 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `si...')
+#3 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `si...', Array, false)
+#4 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\app\Controllers\Home.php(43): CodeIgniter\Model->insert(Array)
+#8 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+#9 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\DELL\\D...')
+#13 {main}
+CRITICAL - 2023-11-29 12:31:56 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'paiz\', 2, \'5|Tingkat Nasional\', \'1|Anak Kandumg\', \'4|Buruh\', \'3|1.250.000\', \'2|2 Orang\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'paiz\', 2, \'5|Tingkat Nasional\', \'1|Anak Kandumg\', \'4|Buruh\', \'3|1.250.000\', \'2|2 Orang\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'paiz\', 2, \'5|Tingkat Nasional\', \'1|Anak Kandumg\', \'4|Buruh\', \'3|1.250.000\', \'2|2 Orang\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (:nama:, :pemberkasan:, :prestasi:, :status:, :pk_ortu:, :ph_ortu:, :tg_ortu:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Home.php(43): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\DELL\\Documents\\rosyad\\project\\joki\\ekosi\\KIP\\public\\index.php')
+INFO - 2023-11-29 12:32:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:32:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:33:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-29 12:34:05 --> mysqli_sql_exception: Operand should contain 1 column(s) in C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `si...', 0)
+#1 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `si...')
+#2 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `si...')
+#3 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `si...', Array, false)
+#4 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\app\Controllers\Home.php(43): CodeIgniter\Model->insert(Array)
+#8 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+#9 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\DELL\Documents\rosyad\project\joki\ekosi\KIP\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\DELL\\D...')
+#13 {main}
+CRITICAL - 2023-11-29 12:34:05 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'agung\', (\'1|KKS\',\'1|PKH\'), \'5|Tingkat Nasional\', \'2|Anak Asuh\', \'3|Pegawai\', \'2|2.000.000\', \'2|2 Orang\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'agung\', (\'1|KKS\',\'1|PKH\'), \'5|Tingkat Nasional\', \'2|Anak Asuh\', \'3|Pegawai\', \'2|2.000.000\', \'2|2 Orang\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'agung\', (\'1|KKS\',\'1|PKH\'), \'5|Tingkat Nasional\', \'2|Anak Asuh\', \'3|Pegawai\', \'2|2.000.000\', \'2|2 Orang\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (:nama:, :pemberkasan:, :prestasi:, :status:, :pk_ortu:, :ph_ortu:, :tg_ortu:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Home.php(43): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\DELL\\Documents\\rosyad\\project\\joki\\ekosi\\KIP\\public\\index.php')
+INFO - 2023-11-29 12:35:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:35:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:37:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:41:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:42:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:46:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:47:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:48:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:48:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:48:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:49:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 12:49:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:11:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:48:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:48:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:50:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:50:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:50:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:51:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:51:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:51:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:53:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-29 13:53:23 --> Router.invalidParameterType
+in SYSTEMPATH\Router\RouteCollection.php on line 1243.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1243): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1101): CodeIgniter\Router\RouteCollection->buildReverseRoute('delete/([0-9]+)', [...])
+ 3 SYSTEMPATH\Common.php(966): CodeIgniter\Router\RouteCollection->reverseRoute('App\\Controllers\\Home::deleteData', '')
+ 4 APPPATH\Views\index.php(307): route_to('Home::deleteData', '')
+ 5 SYSTEMPATH\View\View.php(224): include('C:\\Users\\DELL\\Documents\\rosyad\\project\\joki\\ekosi\\KIP\\app\\Views\\index.php')
+ 6 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('index', [], true)
+ 8 APPPATH\Controllers\Home.php(33): view('index', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\DELL\\Documents\\rosyad\\project\\joki\\ekosi\\KIP\\public\\index.php')
+INFO - 2023-11-29 13:53:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:55:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:56:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:56:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:57:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:59:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 13:59:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 14:00:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 14:00:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 14:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 14:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 14:01:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 14:01:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 14:02:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 14:02:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-29 14:26:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

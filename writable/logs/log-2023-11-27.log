@@ -1,0 +1,1153 @@
+CRITICAL - 2023-11-27 10:52:01 --> Call to undefined method App\Models\SiswaModel::getAllSiswa
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\Home.php(15): CodeIgniter\Model->__call('getAllSiswa', [])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+CRITICAL - 2023-11-27 10:52:06 --> Call to undefined method App\Models\SiswaModel::getAllSiswa
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\Home.php(15): CodeIgniter\Model->__call('getAllSiswa', [])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+CRITICAL - 2023-11-27 10:53:09 --> Call to undefined method App\Models\SiswaModel::getAllSiswa
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\Home.php(15): CodeIgniter\Model->__call('getAllSiswa', [])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+ERROR - 2023-11-27 11:14:43 --> mysqli_sql_exception: Column 'pemberkasan' cannot be null in C:\xampp\htdocs\KIP\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\KIP\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `si...', 0)
+#1 C:\xampp\htdocs\KIP\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `si...')
+#2 C:\xampp\htdocs\KIP\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `si...')
+#3 C:\xampp\htdocs\KIP\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `si...', Array, false)
+#4 C:\xampp\htdocs\KIP\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\KIP\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\KIP\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\KIP\app\Controllers\Home.php(36): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\KIP\system\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+#9 C:\xampp\htdocs\KIP\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\KIP\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KIP\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KIP\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-11-27 11:14:43 --> Column 'pemberkasan' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'faiz abidin\', NULL, \'3\', \'2\', \'3\', \'4\', \'5\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'faiz abidin\', NULL, \'3\', \'2\', \'3\', \'4\', \'5\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'faiz abidin\', NULL, \'3\', \'2\', \'3\', \'4\', \'5\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (:nama:, :pemberkasan:, :prestasi:, :status:, :pk_ortu:, :ph_ortu:, :tg_ortu:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Home.php(36): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+ERROR - 2023-11-27 11:15:26 --> mysqli_sql_exception: Column 'pemberkasan' cannot be null in C:\xampp\htdocs\KIP\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\KIP\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `si...', 0)
+#1 C:\xampp\htdocs\KIP\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `si...')
+#2 C:\xampp\htdocs\KIP\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `si...')
+#3 C:\xampp\htdocs\KIP\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `si...', Array, false)
+#4 C:\xampp\htdocs\KIP\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\KIP\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\KIP\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\KIP\app\Controllers\Home.php(36): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\KIP\system\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+#9 C:\xampp\htdocs\KIP\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\KIP\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KIP\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KIP\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-11-27 11:15:26 --> Column 'pemberkasan' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'faiz abidin\', NULL, \'3\', \'2\', \'3\', \'4\', \'5\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'faiz abidin\', NULL, \'3\', \'2\', \'3\', \'4\', \'5\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'faiz abidin\', NULL, \'3\', \'2\', \'3\', \'4\', \'5\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (:nama:, :pemberkasan:, :prestasi:, :status:, :pk_ortu:, :ph_ortu:, :tg_ortu:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Home.php(36): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+INFO - 2023-11-27 11:23:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:23:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:25:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:28:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:28:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:29:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:29:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:31:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:31:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:31:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:34:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-27 11:34:38 --> Undefined index: id
+in APPPATH\Views\index.php on line 290.
+ 1 APPPATH\Views\index.php(290): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: id', 'C:\\xampp\\htdocs\\KIP\\app\\Views\\index.php', 290, [...])
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KIP\\app\\Views\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('index', [], true)
+ 5 APPPATH\Controllers\Home.php(18): view('index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+INFO - 2023-11-27 11:34:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-27 11:34:41 --> Undefined index: id
+in APPPATH\Views\index.php on line 290.
+ 1 APPPATH\Views\index.php(290): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: id', 'C:\\xampp\\htdocs\\KIP\\app\\Views\\index.php', 290, [...])
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KIP\\app\\Views\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('index', [], true)
+ 5 APPPATH\Controllers\Home.php(18): view('index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+INFO - 2023-11-27 11:35:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:41:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:43:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:43:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:51:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:51:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:53:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:56:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 11:56:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:04:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:04:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:26:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-27 12:26:16 --> Class 'App\Controllers\YourModel' not found
+in APPPATH\Controllers\Home.php on line 68.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->updateData()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+INFO - 2023-11-27 12:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:28:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-27 12:28:19 --> Class 'App\Controllers\YourModel' not found
+in APPPATH\Controllers\Home.php on line 69.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->updateData()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+INFO - 2023-11-27 12:30:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:30:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:31:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:31:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-27 12:33:56 --> syntax error, unexpected ','
+in APPPATH\Controllers\Home.php on line 64.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\KIP\\app\\Controllers\\Home.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 [internal function]: spl_autoload_call('App\\Controllers\\Home')
+ 5 SYSTEMPATH\CodeIgniter.php(890): class_exists('\\App\\Controllers\\Home', true)
+ 6 SYSTEMPATH\CodeIgniter.php(484): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+INFO - 2023-11-27 12:34:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:34:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:34:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:35:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:36:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:42:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:44:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:44:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:49:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:51:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:53:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:53:20 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 12:53:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:53:38 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 12:54:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:54:32 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 12:56:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:57:00 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 12:58:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 12:58:30 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 13:01:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:02:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:06:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:07:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:07:25 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 13:08:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:08:10 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 13:08:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:08:58 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 13:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:09:15 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 13:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:13:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:13:28 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 13:13:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:26:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-27 13:26:26 --> Too few arguments to function App\Controllers\Home::updateData(), 0 passed in C:\xampp\htdocs\KIP\system\CodeIgniter.php on line 932 and exactly 2 expected
+in APPPATH\Controllers\Home.php on line 58.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->updateData()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+INFO - 2023-11-27 13:28:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-27 13:28:59 --> Too few arguments to function App\Controllers\Home::updateData(), 0 passed in C:\xampp\htdocs\KIP\system\CodeIgniter.php on line 932 and exactly 2 expected
+in APPPATH\Controllers\Home.php on line 58.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->updateData()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+INFO - 2023-11-27 13:29:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:29:28 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 13:29:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:29:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:30:01 --> Update data berhasil: {"status":"success","message":"Data berhasil disimpan."}
+INFO - 2023-11-27 13:30:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:32:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:33:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:33:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:34:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:34:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:38:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:38:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:38:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:39:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:40:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:40:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:41:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:41:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:41:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:41:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 13:55:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-27 13:55:12 --> Undefined index: dina
+in APPPATH\Controllers\Home.php on line 149.
+ 1 APPPATH\Controllers\Home.php(149): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: dina', 'C:\\xampp\\htdocs\\KIP\\app\\Controllers\\Home.php', 149, [...])
+ 2 APPPATH\Controllers\Home.php(111): App\Controllers\Home->hitungProfileMatching([...])
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->processData()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+ERROR - 2023-11-27 13:57:47 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 13:57:47 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 13:58:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 13:58:48 --> mysqli_sql_exception: Column 'status' cannot be null in C:\xampp\htdocs\KIP\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\KIP\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `si...', 0)
+#1 C:\xampp\htdocs\KIP\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `si...')
+#2 C:\xampp\htdocs\KIP\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `si...')
+#3 C:\xampp\htdocs\KIP\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `si...', Array, false)
+#4 C:\xampp\htdocs\KIP\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\KIP\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\KIP\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\KIP\app\Controllers\Home.php(36): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\KIP\system\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+#9 C:\xampp\htdocs\KIP\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\KIP\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KIP\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KIP\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-11-27 13:58:48 --> Column 'status' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'s\', \'3\', \'5\', NULL, \'4\', \'4\', \'3\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'s\', \'3\', \'5\', NULL, \'4\', \'4\', \'3\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'s\', \'3\', \'5\', NULL, \'4\', \'4\', \'3\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (:nama:, :pemberkasan:, :prestasi:, :status:, :pk_ortu:, :ph_ortu:, :tg_ortu:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Home.php(36): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+INFO - 2023-11-27 13:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 13:59:07 --> mysqli_sql_exception: Column 'status' cannot be null in C:\xampp\htdocs\KIP\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\KIP\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `si...', 0)
+#1 C:\xampp\htdocs\KIP\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `si...')
+#2 C:\xampp\htdocs\KIP\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `si...')
+#3 C:\xampp\htdocs\KIP\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `si...', Array, false)
+#4 C:\xampp\htdocs\KIP\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\KIP\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\KIP\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\KIP\app\Controllers\Home.php(36): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\KIP\system\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+#9 C:\xampp\htdocs\KIP\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\KIP\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KIP\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KIP\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-11-27 13:59:07 --> Column 'status' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'s\', \'3\', \'5\', NULL, \'4\', \'4\', \'3\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'s\', \'3\', \'5\', NULL, \'4\', \'4\', \'3\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'s\', \'3\', \'5\', NULL, \'4\', \'4\', \'3\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (:nama:, :pemberkasan:, :prestasi:, :status:, :pk_ortu:, :ph_ortu:, :tg_ortu:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Home.php(36): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+ERROR - 2023-11-27 14:00:16 --> mysqli_sql_exception: Column 'status' cannot be null in C:\xampp\htdocs\KIP\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\KIP\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `si...', 0)
+#1 C:\xampp\htdocs\KIP\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `si...')
+#2 C:\xampp\htdocs\KIP\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `si...')
+#3 C:\xampp\htdocs\KIP\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `si...', Array, false)
+#4 C:\xampp\htdocs\KIP\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\KIP\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\KIP\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\KIP\app\Controllers\Home.php(36): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\KIP\system\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+#9 C:\xampp\htdocs\KIP\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\KIP\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KIP\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KIP\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-11-27 14:00:16 --> Column 'status' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'s\', \'3\', \'5\', NULL, \'4\', \'4\', \'3\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'s\', \'3\', \'5\', NULL, \'4\', \'4\', \'3\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (\'s\', \'3\', \'5\', NULL, \'4\', \'4\', \'3\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `siswa` (`nama`, `pemberkasan`, `prestasi`, `status`, `pk_ortu`, `ph_ortu`, `tg_ortu`) VALUES (:nama:, :pemberkasan:, :prestasi:, :status:, :pk_ortu:, :ph_ortu:, :tg_ortu:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Home.php(36): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->tambahdata()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\KIP\\public\\index.php')
+INFO - 2023-11-27 14:00:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:00:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:00:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:00:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:00:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:00:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:00:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:00:51 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:00:51 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:01:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:02:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:02:43 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:03:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:03:55 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:03:55 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:05:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:05:14 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:05:14 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:11:04 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:18 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:13:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:13:25 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:13:25 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:38 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:14:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:14:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:14:44 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:14:44 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:18:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:18:37 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:18:37 --> Kriteria prestasi tidak ditemukan.
+INFO - 2023-11-27 14:20:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:20:07 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:20:07 --> Kriteria prestasi tidak ditemukan.
+INFO - 2023-11-27 14:21:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:21:28 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:21:28 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:42 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:22:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:22:49 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:22:49 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:24:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:24:16 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:16 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:24:58 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:05 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:25:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:25:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:25:42 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:25:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:26:11 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:26:11 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 14:33:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:33:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:33:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:33:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:33:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:33:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:33:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:33:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:33:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:33:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:33:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:35:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:35:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:35:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:35:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:36:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:36:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:36:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:36:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-27 14:38:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-27 14:56:26 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria tg_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria id tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria nama tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria pemberkasan tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria prestasi tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria status tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria pk_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria ph_ortu tidak ditemukan.
+ERROR - 2023-11-27 14:56:26 --> Kriteria tg_ortu tidak ditemukan.
+INFO - 2023-11-27 23:11:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
