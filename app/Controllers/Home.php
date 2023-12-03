@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\SiswaModel;
+use App\Models\HasilModel;
 
 class Home extends BaseController
 {
@@ -82,13 +83,25 @@ class Home extends BaseController
         return redirect()->to(base_url('/'))->with('success', 'Data berhasil dihapus.');
     }
 
+    public function edit($id)
+    {
+        $siswaModel = new SiswaModel();
+        $data['siswa'] = $siswaModel->find($id);
+
+        return view('edit_view', $data);
+    }
+
     public function updateData()
     {
         try {
             // Ambil data dari request
+            $pemberkasanValues = $this->request->getPost('pemberkasan');
+
+            // Ubah array menjadi string (misalnya, dengan pemisah koma)
+            $pemberkasan = implode(', ', $pemberkasanValues);
+
             $id = $this->request->getPost('id');
             $nama = $this->request->getPost('nama');
-            $pemberkasan = $this->request->getPost('pemberkasan');
             $prestasi = $this->request->getPost('prestasi');
             $status = $this->request->getPost('status_anak');
             $pk_ortu = $this->request->getPost('pekerjaan_ortu');
@@ -101,7 +114,7 @@ class Home extends BaseController
                 'nama' => $nama,
                 'pemberkasan' => $pemberkasan,
                 'prestasi' => $prestasi,
-                'status_anak' => $status,
+                'status' => $status,
                 'pk_ortu' => $pk_ortu,
                 'ph_ortu' => $ph_ortu,
                 'tg_ortu' => $tg_ortu,
@@ -110,13 +123,7 @@ class Home extends BaseController
 
             $model->update($id, $data);
 
-            // Tampilkan pesan sukses atau error
-            $response = ['status' => 'success', 'message' => 'Data berhasil disimpan.'];
-
-            // Tambahkan informasi debug
-            log_message('info', 'Update data berhasil: ' . json_encode($response));
-
-            return $this->response->setJSON($response);
+            return redirect()->to(base_url('/'))->with('success', 'Data berhasil diupdate.');
         } catch (\Exception $e) {
             // Tampilkan pesan error dan informasi debug
             $errorMessage = 'Terjadi kesalahan saat menyimpan data. Error: ' . $e->getMessage();
@@ -155,11 +162,26 @@ class Home extends BaseController
         // Hitung Profile Matching
         $hasilPerhitungan = $this->hitungProfileMatching($siswaData);
 
-        // Tampilkan hasil perhitungan (Anda dapat mengubah ini sesuai kebutuhan)
-        echo 'Hasil Profile Matching:<br>';
-        echo '<pre>';
-        print_r($hasilPerhitungan);
-        echo '</pre>';
+        $hasilModel = new HasilModel();
+
+        foreach ($hasilPerhitungan as $hasil) {
+            $dataHasil = [
+                'id' => $hasil['id'],
+                'nama' => $hasil['nama'],
+                'skor' => $hasil['skor'],
+                'tgl'  => date('Y-m-d H:i:s'), // Tambahkan tanggal saat ini
+            ];
+
+            $hasilModel->insertHasil($dataHasil);
+        }
+
+        // Set flash data untuk notifikasi
+        // Set flash data untuk notifikasi dengan link ke halaman hasil
+        $session = session();
+        $session->setFlashdata('success', 'Perhitungan berhasil dilakukan. <a href="' . base_url('/hasil') . '">Lihat hasil</a>');
+
+        // Redirect kembali ke halaman index
+        return redirect()->to(base_url('/'));
     }
 
     private function hitungProfileMatching($siswaData)
@@ -189,12 +211,12 @@ class Home extends BaseController
 
         // Nilai target
         $nilaiTarget = [
-            'pemberkasan' => 5,
-            'prestasi' => 4,
-            'status' => 3,
-            'pk_ortu' => 2,
+            'pemberkasan' => 4,
+            'prestasi' => 5,
+            'status' => 5,
+            'pk_ortu' => 1,
             'ph_ortu' => 1,
-            'tg_ortu' => 3,
+            'tg_ortu' => 5,
         ];
 
         // Perulangan untuk setiap siswa
@@ -208,7 +230,7 @@ class Home extends BaseController
                     // Menggunakan bobot selisih sesuai dengan kriteria
                     $selisih = $data[$key] - $nilaiTarget[$key];
 
-                    if ($key === 'tg_ortu') {
+                    if ($key === 'tg_ortu' || $key === 'prestasi') {
                         $jumlahAtributSecondary += abs($bobotSelisih[$selisih]);
                     } else {
                         // Memperbarui jumlah atribut core factor
@@ -217,8 +239,8 @@ class Home extends BaseController
                 }
             }
 
-            $nsf = $jumlahAtribut / 5;
-            $nt = $jumlahAtributSecondary / 1;
+            $nsf = $jumlahAtribut / 4;
+            $nt = $jumlahAtributSecondary / 2;
 
             // Menentukan nilai Core Factor dan Secondary Factor
             $coreFactor = $nsf * $bobotCoreFactor;
@@ -226,6 +248,7 @@ class Home extends BaseController
 
             // Menyimpan skor per siswa
             $skorSiswa[] = [
+                'id' => $data['id'],
                 'nama' => $data['nama'],
                 'skor' => $coreFactor + $secondaryFactor,
             ];
@@ -238,5 +261,47 @@ class Home extends BaseController
         });
 
         return $skorSiswa;
+    }
+    public function hasil()
+    {
+        // Load the HasilModel
+        $hasilModel = new HasilModel();
+
+        // Fetch all hasil data from the database
+        $hasilPerhitungan = $hasilModel->getAllHasil();
+
+        // Load the view and pass the hasil data
+        return view('hasil', ['hasilPerhitungan' => $hasilPerhitungan]);
+    }
+
+    public function deleteHasil($id)
+    {
+        // Panggil model untuk menghapus data hasil berdasarkan ID
+        $hasilModel = new HasilModel();
+        $hasilModel->deleteHasil($id);
+
+        // Set success flash message
+        $session = session();
+        $session->setFlashdata('success', 'Data hasil berhasil dihapus.');
+
+        // Redirect kembali ke halaman hasil
+        return redirect()->to(base_url('/hasil'))->with('success', 'Data hasil berhasil dihapus.');
+    }
+
+    public function login()
+    {
+        return view('login');
+    }
+    public function proseslogin()
+    {
+        return view('index');
+    }
+    public function logout()
+    {
+        // Lakukan aksi logout disini
+        // ...
+
+        // Kemudian kembalikan view login
+        return view('login');
     }
 }
