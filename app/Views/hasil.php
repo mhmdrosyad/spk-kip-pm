@@ -5,7 +5,6 @@
         <thead class="thead-dark">
             <tr>
                 <th class="border-right">No</th>
-                <th>ID</th>
                 <th>Nama Siswa</th>
                 <th>Skor</th>
                 <th>Tanggal|Waktu</th>
@@ -23,7 +22,6 @@
             foreach ($hasilPerhitungan as $index => $hasil) : ?>
                 <tr>
                     <td><?= $index + 1 ?></td>
-                    <td><?= $hasil['id'] ?></td>
                     <td><?= $hasil['nama'] ?></td>
                     <td><?= $hasil['skor'] ?></td>
                     <td><?= $hasil['tgl'] ?></td>

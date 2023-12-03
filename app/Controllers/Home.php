@@ -137,9 +137,12 @@ class Home extends BaseController
     {
         // Load the SiswaModel
         $siswaModel = new SiswaModel();
+        $hasilModel = new HasilModel();
 
         // Fetch all data from the SiswaModel
         $siswaData = $siswaModel->findAll();
+        $hasilData = $hasilModel->findAll();
+
         foreach ($siswaData as &$siswa) {
             foreach ($siswa as $key => $value) {
                 // Jika key adalah "pemberkasan", menjumlahkan nilai di dalamnya
@@ -154,34 +157,41 @@ class Home extends BaseController
             }
         }
 
-        // Print data for debugging
-        echo '<pre>';
-        print_r($siswaData);
-        echo '</pre>';
 
-        // Hitung Profile Matching
-        $hasilPerhitungan = $this->hitungProfileMatching($siswaData);
+        // Ambil kolom 'id' dari hasilData
+        $hasilDataIds = array_column($hasilData, 'id');
 
-        $hasilModel = new HasilModel();
+        // Temukan siswa yang id-nya tidak ada di hasilData
+        $siswaDataFiltered = array_filter($siswaData, function ($siswa) use ($hasilDataIds) {
+            return !in_array($siswa['id'], $hasilDataIds);
+        });
 
-        foreach ($hasilPerhitungan as $hasil) {
-            $dataHasil = [
-                'id' => $hasil['id'],
-                'nama' => $hasil['nama'],
-                'skor' => $hasil['skor'],
-                'tgl'  => date('Y-m-d H:i:s'), // Tambahkan tanggal saat ini
-            ];
 
-            $hasilModel->insertHasil($dataHasil);
+        // Lakukan perhitungan jika ada siswa yang belum ada di hasilData
+        if (!empty($siswaDataFiltered)) {
+            $hasilPerhitungan = $this->hitungProfileMatching($siswaDataFiltered);
+
+            foreach ($hasilPerhitungan as $hasil) {
+                $dataHasil = [
+                    'id' => $hasil['id'],
+                    'nama' => $hasil['nama'],
+                    'skor' => $hasil['skor'],
+                    'tgl'  => date('Y-m-d H:i:s'), // Tambahkan tanggal saat ini
+                ];
+
+                $hasilModel->insertHasil($dataHasil);
+            }
+
+            // Set flash data untuk notifikasi
+            // Set flash data untuk notifikasi dengan link ke halaman hasil
+            $session = session();
+            $session->setFlashdata('success', 'Perhitungan berhasil dilakukan. <a href="' . base_url('/hasil') . '">Lihat hasil</a>');
+
+            // Redirect kembali ke halaman index
+            return redirect()->to(base_url('/'));
+        } else {
+            return redirect()->to(base_url('/'));
         }
-
-        // Set flash data untuk notifikasi
-        // Set flash data untuk notifikasi dengan link ke halaman hasil
-        $session = session();
-        $session->setFlashdata('success', 'Perhitungan berhasil dilakukan. <a href="' . base_url('/hasil') . '">Lihat hasil</a>');
-
-        // Redirect kembali ke halaman index
-        return redirect()->to(base_url('/'));
     }
 
     private function hitungProfileMatching($siswaData)
@@ -207,7 +217,7 @@ class Home extends BaseController
         $skorSiswa = [];
 
         // Data siswa referensi (misalnya, siswa pertama sebagai referensi)
-        $siswaReferensi = $siswaData[0];
+        $siswaReferensi = reset($siswaData);
 
         // Nilai target
         $nilaiTarget = [
