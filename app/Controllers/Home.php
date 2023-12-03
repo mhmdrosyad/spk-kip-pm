@@ -197,8 +197,8 @@ class Home extends BaseController
     private function hitungProfileMatching($siswaData)
     {
         // Bobot Core dan Secondary Factor
-        $bobotCoreFactor = 0.6; // 60%
-        $bobotSecondaryFactor = 0.4; // 40%
+        $bobotCoreFactor = 0.7; // 70%
+        $bobotSecondaryFactor = 0.3; // 30%
 
         // Bobot untuk perbedaan nilai target
         $bobotSelisih = [

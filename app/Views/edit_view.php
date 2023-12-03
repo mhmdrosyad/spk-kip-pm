@@ -2,7 +2,6 @@
 
 <!-- Form for Adding Data -->
 <div class="card mb-3">
-    <?php var_dump($siswa); ?>
     <div class="card-body">
         <h3 class="card-title mb-3">Edit Data</h3>
         <form action="<?= base_url('/updateData') ?>" method="POST">
