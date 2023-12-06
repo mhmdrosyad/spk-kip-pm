@@ -1,5 +1,18 @@
 <?= view('templates/header', ['title' => 'Dashboard']) ?>
 
+<head>
+    <style>
+        #dataTable th:nth-child(1),
+        #dataTable td:nth-child(1) {
+            width: 5%;
+            /* Sesuaikan dengan lebar yang diinginkan */
+        }
+
+        /* Ulangi pola di atas untuk setiap kolom */
+    </style>
+</head>
+
+
 <!-- Form for Adding Data -->
 <div class="card mb-3">
     <div class="card-body">
@@ -75,6 +88,18 @@
                     </select>
                 </div>
 
+                <div class="form-group col-md-2">
+                    <label for="inputNamaPeriode">Nama Periode</label>
+                    <select class="form-control" id="inputNamaPeriode" name="id_periode" required>
+                        <!-- Loop through periode options and create dropdown options -->
+                        <?php foreach ($periodeOptions as $periode) : ?>
+                            <option value="<?= $periode['id']; ?>"><?= $periode['periode']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+
+
                 <!-- Add more input fields for other data -->
             </div>
             <button type="submit" class="btn btn-primary">Tambah</button>
@@ -82,58 +107,73 @@
     </div>
 </div>
 
-<div class="table-responsive">
-    <table class="table table-bordered table-hover" id="dataTable">
-        <thead class="thead-dark">
+<table class="table table-bordered table-hover" id="dataTable">
+    <thead class="thead-dark">
+        <tr>
+            <th class="col-md-1">No</th>
+            <th class="col-md-2">Nama</th>
+            <th class="col-md-2">Pemberkasan</th>
+            <th class="col-md-2">Prestasi</th>
+            <th class="col-md-2">Status Anak</th>
+            <th class="col-md-2">Pekerjaan ORTU</th>
+            <th class="col-md-2">Penghasilan ORTU</th>
+            <th class="col-md-2">Tanggungan ORTU</th>
+            <th class="col-md-2">Periode</th>
+            <th class="col-md-2">Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        // Assuming $siswa is an array of data fetched from the database
+        foreach ($siswa as $index => $data) {
+        ?>
             <tr>
-                <th class="border-right">No</th>
-                <th>Nama</th>
-                <th>Pemberkasan</th>
-                <th>Prestasi</th>
-                <th>Status Anak</th>
-                <th>Pekerjaan ORTU</th>
-                <th>Penghasilan ORTU</th>
-                <th>Tanggungan ORTU</th>
-                <th>Aksi</th>
+                <td><?= $index + 1 ?></td>
+                <td class="editable"><?= $data['nama'] ?></td>
+                <td class="editable"><?= $data['pemberkasan'] ?></td>
+                <td class="editable"><?= $data['prestasi'] ?></td>
+                <td class="editable"><?= $data['status'] ?></td>
+                <td class="editable"><?= $data['pk_ortu'] ?></td>
+                <td class="editable">
+                    <= <?= $data['ph_ortu'] ?></td>
+                <td class="editable"> >= <?= $data['tg_ortu'] ?></td>
+                <td class="editable"><?= $data['periode'] ?></td>
+
+
+                <td class="td-actions d-flex justify-content-center">
+                    <a href="<?= route_to('Home::edit', $data['id']) ?>" class="btn btn-dark btn-sm btn-edit" title="Edit">
+                        <i class="material-icons">edit</i>
+                    </a>
+                    <button class="btn btn-primary btn-sm btn-save" style="display:none;">Simpan</button>
+                    <a href="<?= route_to('Home::deleteData', $data['id']) ?>" class="btn btn-danger btn-sm" title="Hapus" data-method="get">
+                        <i class="material-icons">delete</i>
+                        <!-- Tambahkan tombol 'Simpan' (sembunyikan awalnya) -->
+                        <button id="btn-save" class="btn btn-primary btn-sm" style="display:none;">Simpan</button>
+                    </a>
+                </td>
+
+
             </tr>
-        </thead>
-        <tbody>
-            <?php
-            // Assuming $siswa is an array of data fetched from the database
-            foreach ($siswa as $index => $data) {
-            ?>
-                <tr>
-                    <td><?= $index + 1 ?></td>
-                    <td class="editable"><?= $data['nama'] ?></td>
-                    <td class="editable"><?= $data['pemberkasan'] ?></td>
-                    <td class="editable"><?= $data['prestasi'] ?></td>
-                    <td class="editable"><?= $data['status'] ?></td>
-                    <td class="editable"><?= $data['pk_ortu'] ?></td>
-                    <td class="editable">
-                        <= <?= $data['ph_ortu'] ?></td>
-                    <td class="editable"> >= <?= $data['tg_ortu'] ?></td>
-                    <td class="td-actions">
-                        <a href="<?= route_to('Home::edit', $data['id']) ?>" class="btn btn-dark btn-sm btn-edit" title="Edit">
-                            <i class="material-icons">edit</i>
-                        </a>
-                        <button class="btn btn-primary btn-sm btn-save" style="display:none;">Simpan</button>
-                        <a href="<?= route_to('Home::deleteData', $data['id']) ?>" class="btn btn-danger btn-sm" title="Hapus" data-method="get">
-                            <i class="material-icons">delete</i>
-                            <!-- Tambahkan tombol 'Simpan' (sembunyikan awalnya) -->
-                            <button id="btn-save" class="btn btn-primary btn-sm" style="display:none;">Simpan</button>
-                        </a>
-                    </td>
+        <?php
+        }
+        ?>
+    </tbody>
+    <div class="mb-3">
+        <label for="filterPeriode">Hapus Data:</label>
+        <select id="filterPeriode" class="form-select">
+            <!-- Isi dengan opsi-opsi periode dari data yang Anda miliki -->
+            <option value="">Semua Periode</option>
+            <option value="periode1">Periode 1</option>
+            <option value="periode2">Periode 2</option>
+            <!-- Tambahkan opsi sesuai dengan data periode yang Anda miliki -->
+        </select>
+        <button id="btn-delete-selected" class="btn btn-danger btn-sm" onclick="deleteSelected()">Hapus Terpilih</button>
+    </div>
 
-                </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-
-    </table>
-    <form action="<?= base_url('home/processData') ?>" method="post">
-        <button type="submit" class="btn btn-success mt-6">Proses</button>
-    </form>
+</table>
+<form action="<?= base_url('home/processData') ?>" method="post">
+    <button type="submit" class="btn btn-success mt-6">Proses</button>
+</form>
 
 </div>
 

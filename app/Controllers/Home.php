@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\SiswaModel;
 use App\Models\HasilModel;
+use App\Models\PeriodeModel;
 
 class Home extends BaseController
 {
@@ -12,30 +13,25 @@ class Home extends BaseController
         // Load the SiswaModel
         $siswaModel = new SiswaModel();
 
-        // Fetch all data from the SiswaModel
-        $data['siswa'] = $siswaModel->findAll();
+        // Fetch all data from the SiswaModel with periode information
+        $data['siswa'] = $siswaModel->getAllSiswaWithPeriode();
+
+        // Load the PeriodeModel
+        $periodeModel = new PeriodeModel();
+
+        // Get all periode data
+        $data['periodeOptions'] = $periodeModel->getAllPeriode();
+
+        // Process the siswa data (remove numbers before '|')
         foreach ($data['siswa'] as &$siswa) {
             foreach ($siswa as $key => $value) {
                 // Menghilangkan angka sebelum karakter '|' pada setiap kata setelah '|'
                 $siswa[$key] = preg_replace("/\b(\d+)\|/", "", $value);
             }
         }
-        // foreach ($data['siswa'] as &$siswa) {
-        //     foreach ($siswa as $key => $value) {
-        //         // Jika key adalah "pemberkasan", menjumlahkan nilai di dalamnya
-        //         if ($key === "pemberkasan") {
-        //             $matches = [];
-        //             preg_match_all("/(\d+)\|/", $value, $matches);
-        //             $jumlah = array_sum($matches[1]);
-        //             $siswa[$key] = $jumlah;
-        //         } else {
-        //             $siswa[$key] = strtok($value, "|");
-        //         }
-        //     }
-        // }
 
 
-        // Load the view with data
+
         return view('index', $data);
     }
 
@@ -49,6 +45,7 @@ class Home extends BaseController
         $totalPemberkasan = count($pemberkasanValues);
 
         // Setelah itu, masukkan ke dalam array data yang akan disimpan
+        $id_periode = $this->request->getPost('id_periode');
         $data = [
             'nama' => $this->request->getPost('nama'),
             'pemberkasan' => $pemberkasan,
@@ -57,6 +54,7 @@ class Home extends BaseController
             'pk_ortu' => $this->request->getPost('pekerjaan_ortu'),
             'ph_ortu' => $this->request->getPost('penghasilan_ortu'),
             'tg_ortu' => $this->request->getPost('tanggungan_ortu'),
+            'id_periode' => ($id_periode !== null) ? $id_periode : 0,
         ];
 
         // Insert the data into the database using the SiswaModel
@@ -172,11 +170,15 @@ class Home extends BaseController
             $hasilPerhitungan = $this->hitungProfileMatching($siswaDataFiltered);
 
             foreach ($hasilPerhitungan as $hasil) {
+                // Ambil id_periode dari siswa (sesuaikan dengan struktur data Anda)
+                $idPeriode = $hasil['id_periode'];
+
                 $dataHasil = [
                     'id' => $hasil['id'],
                     'nama' => $hasil['nama'],
                     'skor' => $hasil['skor'],
                     'tgl'  => date('Y-m-d H:i:s'), // Tambahkan tanggal saat ini
+                    'id_periode' => $idPeriode, // Tambahkan id_periode
                 ];
 
                 $hasilModel->insertHasil($dataHasil);
@@ -216,9 +218,6 @@ class Home extends BaseController
         // Array untuk menyimpan skor per siswa
         $skorSiswa = [];
 
-        // Data siswa referensi (misalnya, siswa pertama sebagai referensi)
-        $siswaReferensi = reset($siswaData);
-
         // Nilai target
         $nilaiTarget = [
             'pemberkasan' => 4,
@@ -235,10 +234,10 @@ class Home extends BaseController
             $jumlahAtribut = 0;
             $jumlahAtributSecondary = 0;
 
-            foreach ($siswaReferensi as $key => $value) {
+            foreach ($nilaiTarget as $key => $target) {
                 if ($key !== 'id' && $key !== 'nama') {
                     // Menggunakan bobot selisih sesuai dengan kriteria
-                    $selisih = $data[$key] - $nilaiTarget[$key];
+                    $selisih = $data[$key] - $target;
 
                     if ($key === 'tg_ortu' || $key === 'prestasi') {
                         $jumlahAtributSecondary += abs($bobotSelisih[$selisih]);
@@ -261,9 +260,9 @@ class Home extends BaseController
                 'id' => $data['id'],
                 'nama' => $data['nama'],
                 'skor' => $coreFactor + $secondaryFactor,
+                'id_periode' => $data['id_periode'],
             ];
         }
-
 
         // Urutkan skor siswa secara descending
         usort($skorSiswa, function ($a, $b) {
@@ -272,17 +271,41 @@ class Home extends BaseController
 
         return $skorSiswa;
     }
+
+    // HomeController.php
     public function hasil()
     {
         // Load the HasilModel
         $hasilModel = new HasilModel();
 
-        // Fetch all hasil data from the database
-        $hasilPerhitungan = $hasilModel->getAllHasil();
+        // Load the PeriodeModel
+        $periodeModel = new PeriodeModel();
 
-        // Load the view and pass the hasil data
+        // Fetch selected periode (if any)
+        $selectedPeriode = $this->request->getPost('filterPeriode');
+
+        // Fetch all hasil data from the database with optional periode filter
+        $hasilPerhitungan = $hasilModel->getAllHasilWithPeriode($selectedPeriode);
+
+        // Fetch all periode data from the database
+        $periodeOptions = $periodeModel->getAllPeriode();
+
+        // Load the view and pass the hasil data and periode options
+        return view('hasil', ['hasilPerhitungan' => $hasilPerhitungan, 'periodeOptions' => $periodeOptions]);
+    }
+
+    // HomeController.php
+    public function fetchHasilByPeriode()
+    {
+        $hasilModel = new HasilModel();
+        $selectedPeriode = $this->request->getPost('periode');
+
+        $hasilPerhitungan = $hasilModel->getAllHasilWithPeriode($selectedPeriode);
+
+        // Load a partial view with the fetched hasil data
         return view('hasil', ['hasilPerhitungan' => $hasilPerhitungan]);
     }
+
 
     public function deleteHasil($id)
     {
