@@ -45,6 +45,7 @@ $routes->post('register', 'Auth::attemptRegister');
 $routes->get('login', 'Auth::login');
 $routes->post('login', 'Auth::attemptLogin');
 $routes->get('logout', 'Auth::logout');
+$routes->post('home/deleteByPeriode', 'Home::deleteByPeriode');
 $routes->get('/edit/(:num)', 'Home::edit/$1');
 $routes->get('/tambah-periode', 'Home::tambahPeriode');
 $routes->post('/tambah-periode', 'Home::addPeriode');

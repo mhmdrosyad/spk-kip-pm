@@ -155,6 +155,8 @@
         <a href="/delete-all" id="btn-delete-selected" class="btn btn-danger btn-sm">Hapus Semua Data</a>
     </div>
 
+
+
 </table>
 <form class="pb-3" action="<?= base_url('home/processData') ?>" method="post">
     <div class="form-row">
@@ -178,9 +180,44 @@
     </div>
 </form>
 
+
 </div>
 
 <!-- Content Row -->
+<script>
+    function deleteSelected() {
+        var selectedPeriode = document.getElementById("filterPeriode").value;
+
+        if (selectedPeriode !== "") {
+            // Send an AJAX request to delete data
+            fetch("/home/deleteByPeriode", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Requested-With": "XMLHttpRequest", // Add this header for CodeIgniter to recognize AJAX requests
+                    },
+                    body: JSON.stringify({
+                        periode: selectedPeriode
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        alert("Data deleted successfully");
+                        location.reload();
+                    } else {
+                        alert("Failed to delete data: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred");
+                });
+        } else {
+            alert("Please select a period");
+        }
+    }
+</script>
 
 
 <script>

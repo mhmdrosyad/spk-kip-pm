@@ -265,6 +265,7 @@ INFO - 2023-12-06 09:50:18 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-12-06 10:11:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-06 10:11:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-06 10:13:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
 INFO - 2023-12-06 10:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-06 10:40:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-06 10:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -545,12 +546,321 @@ WARNING - 2023-12-06 10:42:10 --> [DEPRECATED] preg_match(): Passing null to par
 12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\DELL\\Documents\\rosyad\\project\\joki\\ekosi\\KIP\\public\\index.php')
 CRITICAL - 2023-12-06 10:42:10 --> Router.invalidParameterType
+=======
+INFO - 2023-12-06 11:14:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:16:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:20:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:21:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:22:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:22:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:23:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:23:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 11:23:58 --> Trying to get property 'periode' of non-object
+in APPPATH\Controllers\Home.php on line 331.
+ 1 APPPATH\Controllers\Home.php(331): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'periode\' of non-object', 'C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\app\\Controllers\\Home.php', 331, [])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 11:24:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 11:24:04 --> Trying to get property 'periode' of non-object
+in APPPATH\Controllers\Home.php on line 331.
+ 1 APPPATH\Controllers\Home.php(331): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'periode\' of non-object', 'C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\app\\Controllers\\Home.php', 331, [])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 11:24:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:24:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-06 11:24:43 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`)) in C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\BaseModel.php(1065): CodeIgniter\Model->doDelete(NULL, false)
+#6 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+#7 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+#8 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+#9 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-12-06 11:24:43 --> Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `periode`
+WHERE `periode` = :periode:', [...], false)
+ 5 SYSTEMPATH\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1065): CodeIgniter\Model->doDelete(null, false)
+ 7 APPPATH\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+ 8 APPPATH\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 11:24:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-06 11:24:50 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`)) in C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\BaseModel.php(1065): CodeIgniter\Model->doDelete(NULL, false)
+#6 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+#7 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+#8 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+#9 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-12-06 11:24:50 --> Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `periode`
+WHERE `periode` = :periode:', [...], false)
+ 5 SYSTEMPATH\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1065): CodeIgniter\Model->doDelete(null, false)
+ 7 APPPATH\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+ 8 APPPATH\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 11:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:28:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:28:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:28:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:28:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:28:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:28:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:28:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:28:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:28:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:29:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:29:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:29:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:31:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:32:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:32:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:32:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:32:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:32:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-06 11:32:55 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`)) in C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\BaseModel.php(1065): CodeIgniter\Model->doDelete(NULL, false)
+#6 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+#7 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+#8 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+#9 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-12-06 11:32:55 --> Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `periode`
+WHERE `periode` = :periode:', [...], false)
+ 5 SYSTEMPATH\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1065): CodeIgniter\Model->doDelete(null, false)
+ 7 APPPATH\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+ 8 APPPATH\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 11:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:36:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-06 11:36:15 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`) ON DELETE NO ACTION) in C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\BaseModel.php(1065): CodeIgniter\Model->doDelete(NULL, false)
+#6 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+#7 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+#8 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+#9 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-12-06 11:36:15 --> Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`) ON DELETE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `periode`
+WHERE `periode` = :periode:', [...], false)
+ 5 SYSTEMPATH\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1065): CodeIgniter\Model->doDelete(null, false)
+ 7 APPPATH\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+ 8 APPPATH\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 11:36:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:36:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-06 11:36:26 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`) ON DELETE NO ACTION) in C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\BaseModel.php(1065): CodeIgniter\Model->doDelete(NULL, false)
+#6 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+#7 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+#8 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+#9 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-12-06 11:36:26 --> Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`) ON DELETE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `periode`
+WHERE `periode` = :periode:', [...], false)
+ 5 SYSTEMPATH\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1065): CodeIgniter\Model->doDelete(null, false)
+ 7 APPPATH\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+ 8 APPPATH\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 11:39:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:39:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:39:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:39:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:39:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:39:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:39:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:41:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:41:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:41:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:41:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:43:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:43:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:43:43 --> Selected Periode: periode 1
+INFO - 2023-12-06 11:43:43 --> Deleted Rows: 1
+INFO - 2023-12-06 11:43:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:44:51 --> Selected Periode: periode 1
+INFO - 2023-12-06 11:44:51 --> Deleted Rows: 1
+INFO - 2023-12-06 11:44:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:45:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:45:59 --> Deleted Rows: 1
+INFO - 2023-12-06 11:46:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:46:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:46:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:46:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:51:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:51:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-06 11:51:30 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`)) in C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\BaseModel.php(1065): CodeIgniter\Model->doDelete(NULL, false)
+#6 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+#7 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\app\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+#8 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+#9 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\SPK-KIP\spk-kip-pm\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-12-06 11:51:30 --> Cannot delete or update a parent row: a foreign key constraint fails (`kip`.`siswa`, CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `periode`
+WHERE `periode` = \'periode 1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `periode`
+WHERE `periode` = :periode:', [...], false)
+ 5 SYSTEMPATH\Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1065): CodeIgniter\Model->doDelete(null, false)
+ 7 APPPATH\Models\PeriodeModel.php(20): CodeIgniter\BaseModel->delete()
+ 8 APPPATH\Controllers\Home.php(344): App\Models\PeriodeModel->deleteByPeriode('periode 1')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->deleteByPeriode()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 11:52:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:53:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:54:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:54:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:55:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:55:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:55:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 11:55:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:02:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 12:02:56 --> Router.invalidParameterType
+>>>>>>> 1cec211980301fe4cb55ef059a25139633d20d5e
 in SYSTEMPATH\Router\RouteCollection.php on line 1243.
  1 SYSTEMPATH\Router\RouteCollection.php(1243): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
  2 SYSTEMPATH\Router\RouteCollection.php(1101): CodeIgniter\Router\RouteCollection->buildReverseRoute('home/deletehasil/([^/]+)', [...])
  3 SYSTEMPATH\Common.php(966): CodeIgniter\Router\RouteCollection->reverseRoute('App\\Controllers\\Home::deleteHasil', null)
  4 APPPATH\Views\hasil.php(45): route_to('Home::deleteHasil', null)
+<<<<<<< HEAD
  5 SYSTEMPATH\View\View.php(224): include('C:\\Users\\DELL\\Documents\\rosyad\\project\\joki\\ekosi\\KIP\\app\\Views\\hasil.php')
+=======
+ 5 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\app\\Views\\hasil.php')
+>>>>>>> 1cec211980301fe4cb55ef059a25139633d20d5e
  6 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
  7 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('hasil', [], true)
  8 APPPATH\Controllers\Home.php(294): view('hasil', [...])
@@ -558,6 +868,7 @@ in SYSTEMPATH\Router\RouteCollection.php on line 1243.
 10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
 11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+<<<<<<< HEAD
 13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\DELL\\Documents\\rosyad\\project\\joki\\ekosi\\KIP\\public\\index.php')
 INFO - 2023-12-06 10:44:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-06 10:44:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -580,3 +891,137 @@ INFO - 2023-12-06 10:45:35 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-12-06 10:45:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-06 10:46:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-06 10:46:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 12:03:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:03:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:03:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 12:03:51 --> Router.invalidParameterType
+in SYSTEMPATH\Router\RouteCollection.php on line 1243.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1243): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1101): CodeIgniter\Router\RouteCollection->buildReverseRoute('home/deletehasil/([^/]+)', [...])
+ 3 SYSTEMPATH\Common.php(966): CodeIgniter\Router\RouteCollection->reverseRoute('App\\Controllers\\Home::deleteHasil', null)
+ 4 APPPATH\Views\hasil.php(45): route_to('Home::deleteHasil', null)
+ 5 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\app\\Views\\hasil.php')
+ 6 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('hasil', [], true)
+ 8 APPPATH\Controllers\Home.php(294): view('hasil', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->hasil()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 12:04:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 12:04:19 --> Router.invalidParameterType
+in SYSTEMPATH\Router\RouteCollection.php on line 1243.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1243): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1101): CodeIgniter\Router\RouteCollection->buildReverseRoute('home/deletehasil/([^/]+)', [...])
+ 3 SYSTEMPATH\Common.php(966): CodeIgniter\Router\RouteCollection->reverseRoute('App\\Controllers\\Home::deleteHasil', null)
+ 4 APPPATH\Views\hasil.php(45): route_to('Home::deleteHasil', null)
+ 5 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\app\\Views\\hasil.php')
+ 6 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('hasil', [], true)
+ 8 APPPATH\Controllers\Home.php(294): view('hasil', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->hasil()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 12:04:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:05:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:05:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:05:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:05:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:05:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 12:05:33 --> Router.invalidParameterType
+in SYSTEMPATH\Router\RouteCollection.php on line 1243.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1243): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1101): CodeIgniter\Router\RouteCollection->buildReverseRoute('home/deletehasil/([^/]+)', [...])
+ 3 SYSTEMPATH\Common.php(966): CodeIgniter\Router\RouteCollection->reverseRoute('App\\Controllers\\Home::deleteHasil', null)
+ 4 APPPATH\Views\hasil.php(45): route_to('Home::deleteHasil', null)
+ 5 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\app\\Views\\hasil.php')
+ 6 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('hasil', [], true)
+ 8 APPPATH\Controllers\Home.php(294): view('hasil', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->hasil()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 12:06:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-06 12:06:45 --> Router.invalidParameterType
+in SYSTEMPATH\Router\RouteCollection.php on line 1243.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1243): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1101): CodeIgniter\Router\RouteCollection->buildReverseRoute('home/deletehasil/([^/]+)', [...])
+ 3 SYSTEMPATH\Common.php(966): CodeIgniter\Router\RouteCollection->reverseRoute('App\\Controllers\\Home::deleteHasil', null)
+ 4 APPPATH\Views\hasil.php(45): route_to('Home::deleteHasil', null)
+ 5 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\app\\Views\\hasil.php')
+ 6 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('hasil', [], true)
+ 8 APPPATH\Controllers\Home.php(294): view('hasil', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->hasil()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\SPK-KIP\\spk-kip-pm\\public\\index.php')
+INFO - 2023-12-06 12:07:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:07:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:07:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:07:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:07:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:10:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:10:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:10:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:10:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:10:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:10:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:11:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:11:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:13:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:36:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:36:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:37:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:37:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:37:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:38:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:38:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:38:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:38:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:39:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:39:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:39:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:39:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:39:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:40:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:40:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:40:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:40:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:40:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:40:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:41:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:41:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:41:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:41:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:41:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:41:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:42:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:47:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 12:47:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:32:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:32:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:38:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:40:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:41:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:41:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:42:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:43:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:43:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:43:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:43:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-06 23:43:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> 1cec211980301fe4cb55ef059a25139633d20d5e

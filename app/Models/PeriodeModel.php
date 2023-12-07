@@ -15,4 +15,8 @@ class PeriodeModel extends Model
     {
         return $this->findAll();
     }
+    public function deleteByPeriode($periode)
+    {
+        return $this->where('periode', $periode)->delete();
+    }
 }
