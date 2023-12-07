@@ -30,8 +30,6 @@ class Home extends BaseController
             }
         }
 
-
-
         return view('index', $data);
     }
 
@@ -130,6 +128,26 @@ class Home extends BaseController
             return $this->response->setJSON(['status' => 'error', 'message' => $errorMessage]);
         }
     }
+    public function TambahDataPeriode()
+    {
+        $periodeModel = new PeriodeModel();
+
+        // Ambil data dari formulir
+        $periode = $this->request->getPost('periode');
+        $tahun = $this->request->getPost('tahun');
+
+        // Lakukan validasi atau operasi lain sesuai kebutuhan
+
+        // Gabungkan periode dan tahun menjadi satu string, misal: "Januari 2023"
+        $periodeTahun = $periode . ' ' . $tahun;
+
+        // Simpan data ke database
+        $periodeModel->insert(['periode' => $periodeTahun]);
+
+        // Redirect atau tampilkan pesan sukses
+        return redirect()->to(site_url('/'))->with('success', 'Data berhasil ditambahkan.');
+    }
+
 
     public function processData()
     {
@@ -215,6 +233,7 @@ class Home extends BaseController
             -4 => 1.0,
         ];
 
+
         // Array untuk menyimpan skor per siswa
         $skorSiswa = [];
 
@@ -227,7 +246,7 @@ class Home extends BaseController
             'ph_ortu' => 1,
             'tg_ortu' => 5,
         ];
-
+        // nilai target dibuat 5 semua
         // Perulangan untuk setiap siswa
         foreach ($siswaData as $data) {
             // Menghitung jarak Euclidean untuk setiap kriteria
@@ -320,6 +339,40 @@ class Home extends BaseController
         // Redirect kembali ke halaman hasil
         return redirect()->to(base_url('/hasil'))->with('success', 'Data hasil berhasil dihapus.');
     }
+    public function deleteByPeriode()
+    {
+        // Ensure the request is an AJAX request
+        if (!$this->request->isAJAX()) {
+            return $this->response->setStatusCode(400)->setJSON(['status' => 'error', 'message' => 'Invalid request']);
+        }
+
+        // Get the selected period from the AJAX request
+        $requestData = $this->request->getJSON(true); // Use true to get an associative array
+        $selectedPeriode = isset($requestData['periode']) ? $requestData['periode'] : null;
+
+        if ($selectedPeriode === null) {
+            return $this->response->setStatusCode(400)->setJSON(['status' => 'error', 'message' => 'Invalid or missing periode']);
+        }
+
+        // Perform the deletion based on the selected period
+        $periodeModel = new PeriodeModel();
+
+        try {
+            // Assuming you have a method like deleteByPeriode in your model
+            // Adjust this based on your actual requirements
+            $deletedRows = $periodeModel->deleteByPeriode($selectedPeriode);
+
+            // Send a response (you can customize the response based on your needs)
+            if ($deletedRows > 0) {
+                return $this->response->setJSON(['status' => 'success']);
+            } else {
+                return $this->response->setJSON(['status' => 'error', 'message' => 'No data deleted']);
+            }
+        } catch (\Exception $e) {
+            return $this->response->setStatusCode(500)->setJSON(['status' => 'error', 'message' => 'Failed to delete data']);
+        }
+    }
+
 
     public function login()
     {

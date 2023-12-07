@@ -55,7 +55,6 @@
     </div>
     <!-- Tambahkan ini di dalam bagian head HTML atau sesuaikan dengan kebutuhan Anda -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
     <script>
         $(document).ready(function() {
             // Hanya tampilkan baris dengan periode 1 saat halaman dimuat
@@ -75,7 +74,21 @@
             });
 
             $('#nomorUrut').on('input', function() {
-                var nomorUrut = parseInt($(this).val());
+                var nomorUrut = $(this).val();
+
+                // Clear only the "Diterima" or "Tidak Diterima" text when the input is empty
+                if (nomorUrut === "") {
+                    $('tbody tr td:nth-child(3)').each(function(index, element) {
+                        var skor = parseFloat($(element).text());
+                        if (!isNaN(skor)) {
+                            $(element).text(skor);
+                            $(element).css('color', ''); // Reset color
+                        }
+                    });
+                    return;
+                }
+
+                nomorUrut = parseInt(nomorUrut);
 
                 // Reset warna teks pada kolom nomor, nama, dan skor
                 $('tbody td:nth-child(1), tbody td:nth-child(2), tbody td:nth-child(3)').css('color', '');
@@ -89,10 +102,7 @@
                     $('tbody tr:lt(' + nomorUrut + ') td:nth-child(2), tbody tr:eq(' + (nomorUrut - 1) + ') td:nth-child(2)').css('color', 'green');
                     $('tbody tr:gt(' + (nomorUrut - 1) + ') td:nth-child(2)').css('color', 'red');
 
-                    $('tbody tr:lt(' + nomorUrut + ') td:nth-child(3), tbody tr:eq(' + (nomorUrut - 1) + ') td:nth-child(3)').css('color', 'green');
-                    $('tbody tr:gt(' + (nomorUrut - 1) + ') td:nth-child(3)').css('color', 'red');
-
-                    // Tambahkan teks "Diterima" atau "Tidak Diterima" di dalam kolom skor
+                    // Show the "Diterima" or "Tidak Diterima" text along with the score
                     $('tbody tr td:nth-child(3)').each(function(index, element) {
                         var skor = parseFloat($(element).text());
                         if (!isNaN(skor)) {
@@ -109,6 +119,7 @@
             });
         });
     </script>
+
 
 
     <?= view('templates/footer') ?>

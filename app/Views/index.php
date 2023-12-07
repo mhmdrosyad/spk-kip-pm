@@ -158,26 +158,89 @@
         }
         ?>
     </tbody>
-    <div class="mb-3">
-        <label for="filterPeriode">Hapus Data:</label>
-        <select id="filterPeriode" class="form-select">
-            <!-- Isi dengan opsi-opsi periode dari data yang Anda miliki -->
-            <option value="">Semua Periode</option>
-            <option value="periode1">Periode 1</option>
-            <option value="periode2">Periode 2</option>
-            <!-- Tambahkan opsi sesuai dengan data periode yang Anda miliki -->
-        </select>
-        <button id="btn-delete-selected" class="btn btn-danger btn-sm" onclick="deleteSelected()">Hapus Terpilih</button>
+
+
+    <div class="mb-3 row">
+        <!-- tambah_data_periode_view.php -->
+        <form action="<?= base_url('home/TambahDataPeriode'); ?>" method="post">
+            <div class="mb-3 col-md-2">
+                <label for="inputPeriode" class="form-label">Periode:</label>
+                <input type="text" id="inputPeriode" name="periode" class="form-control" required>
+            </div>
+            <div class="mb-3 col-md-2">
+                <label for="inputTahun" class="form-label">Tahun:</label>
+                <input type="number" id="inputTahun" name="tahun" class="form-control" required>
+            </div>
+
+            <div class="mb-3 col-md-4">
+                <button type="submit" class="btn btn-success mt-3">Tambah Data Periode</button>
+            </div>
+            <div class="mb-3 col-md-4 d-flex justify-content-end align-items-center">
+                <label for="filterPeriode" class="me-2">Hapus Data:</label>
+                <select id="filterPeriode" class="form-select me-2">
+                    <option value="">Semua Periode</option>
+                    <?php
+                    // Fetch data from PeriodeModel
+                    $periodeModel = new \App\Models\PeriodeModel();
+                    $periodeData = $periodeModel->getAllPeriode();
+
+                    // Loop through the data and populate the dropdown
+                    foreach ($periodeData as $periode) {
+                        echo '<option value="' . $periode['periode'] . '">' . $periode['periode'] . '</option>';
+                    }
+                    ?>
+                </select>
+                <button id="btn-delete-selected" class="btn btn-danger btn-sm" onclick="deleteSelected()">Hapus Terpilih</button>
+            </div>
+        </form>
     </div>
 
+
+
 </table>
+
 <form action="<?= base_url('home/processData') ?>" method="post">
     <button type="submit" class="btn btn-success mt-6">Proses</button>
 </form>
 
+
 </div>
 
 <!-- Content Row -->
+<script>
+    function deleteSelected() {
+        var selectedPeriode = document.getElementById("filterPeriode").value;
+
+        if (selectedPeriode !== "") {
+            // Send an AJAX request to delete data
+            fetch("/home/deleteByPeriode", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Requested-With": "XMLHttpRequest", // Add this header for CodeIgniter to recognize AJAX requests
+                    },
+                    body: JSON.stringify({
+                        periode: selectedPeriode
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        alert("Data deleted successfully");
+                        location.reload();
+                    } else {
+                        alert("Failed to delete data: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred");
+                });
+        } else {
+            alert("Please select a period");
+        }
+    }
+</script>
 
 
 <script>

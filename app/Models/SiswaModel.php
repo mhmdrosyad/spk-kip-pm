@@ -31,4 +31,12 @@ class SiswaModel extends Model
         // Fetch all data
         return $this->findAll();
     }
+    // SiswaModel.php
+    // SiswaModel.php
+    public function deleteSiswaByPeriode($periode)
+    {
+        $deletedRows = $this->where('id_periode', $periode)->delete();
+        log_message('info', 'Deleted Rows: ' . $deletedRows);
+        return $deletedRows;
+    }
 }
