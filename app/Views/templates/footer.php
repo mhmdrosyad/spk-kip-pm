@@ -29,96 +29,7 @@
 </div>
 <!-- DataTables Script -->
 <!-- Modifikasi script JavaScript -->
-<script>
-    $(document).ready(function() {
-        $('#dataTables').DataTable({
-            "lengthMenu": [10, 25, 50, 75, 100], // Opsi tampilan jumlah data
-            "pageLength": 10, // Jumlah data per halaman
-            "searching": true, // Aktifkan fitur pencarian
-        });
-    });
-</script>
 
-<!-- <script>
-    $(document).ready(function() {
-        // Meng-handle klik pada tombol Edit
-        $('.btn-edit').on('click', function() {
-            // Menyembunyikan tombol Edit
-            $(this).hide();
-
-            // Menampilkan tombol Simpan pada baris yang diklik
-            var currentRow = $(this).closest('tr');
-            currentRow.find('.btn-save').show();
-
-            // Mengaktifkan kolom-kolom tabel untuk diedit
-            currentRow.find('.editable').prop('contenteditable', true).addClass('active');
-        });
-
-        // Meng-handle klik pada tombol Simpan
-        $('.btn-save').on('click', function() {
-            // Menampilkan kembali tombol Edit pada baris yang diklik
-            var currentRow = $(this).closest('tr');
-            currentRow.find('.btn-edit').show();
-
-            // Menyembunyikan tombol Simpan pada baris yang diklik
-            $(this).hide();
-
-            // Menonaktifkan kolom-kolom tabel dari diedit pada baris yang diklik
-            currentRow.find('.editable').prop('contenteditable', false).removeClass('active');
-
-            // Mengambil data dari baris yang diedit
-            var id = currentRow.find('td[data-field="id"]').text();
-            var nama = currentRow.find('td[data-field="nama"]').text();
-            var pemberkasan = currentRow.find('td[data-field="pemberkasan"]').text();
-            var prestasi = currentRow.find('td[data-field="prestasi"]').text();
-            var status = currentRow.find('td[data-field="status"]').text();
-            var pk_ortu = currentRow.find('td[data-field="pk_ortu"]').text();
-            var ph_ortu = currentRow.find('td[data-field="ph_ortu"]').text();
-            var tg_ortu = currentRow.find('td[data-field="tg_ortu"]').text();
-
-            // Kirim data ke server menggunakan AJAX
-            $.ajax({
-                url: '<?= base_url('Home/updateData') ?>',
-                method: 'POST',
-                data: {
-                    id: id,
-                    nama: nama,
-                    pemberkasan: pemberkasan,
-                    prestasi: prestasi,
-                    status: status,
-                    pk_ortu: pk_ortu,
-                    ph_ortu: ph_ortu,
-                    tg_ortu: tg_ortu,
-                },
-                dataType: 'json',
-                success: function(response) {
-                    // Tampilkan pesan sukses atau error
-                    alert(response.message);
-
-                    // Jika penyimpanan ke basis data berhasil, perbarui tampilan
-                    if (response.status === 'success') {
-                        // Update isi sel-sel yang diedit dengan nilai baru
-                        currentRow.find('td[data-field="nama"]').text(nama);
-                        currentRow.find('td[data-field="pemberkasan"]').text(pemberkasan);
-                        currentRow.find('td[data-field="prestasi"]').text(prestasi);
-                        currentRow.find('td[data-field="status"]').text(status);
-                        currentRow.find('td[data-field="pk_ortu"]').text(pk_ortu);
-                        currentRow.find('td[data-field="ph_ortu"]').text(ph_ortu);
-                        currentRow.find('td[data-field="tg_ortu"]').text(tg_ortu);
-
-                        // Sembunyikan tombol Simpan dan tampilkan tombol Edit lagi
-                        currentRow.find('.btn-save').hide();
-                        currentRow.find('.btn-edit').show();
-                    }
-                },
-                error: function() {
-                    // Tampilkan pesan error jika terjadi kesalahan
-                    alert('Terjadi kesalahan saat menyimpan data.');
-                }
-            });
-        });
-    });
-</script> -->
 
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -142,7 +53,8 @@
 
 
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
 <!-- Bootstrap JS (popper.js required) -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

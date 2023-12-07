@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class HasilModel extends Model
 {
     protected $table = 'hasil';
-    protected $allowedFields = ['id', 'nama', 'skor', 'tgl', 'id_periode']; // Tambahkan 'id_periode'
+    protected $allowedFields = ['id', 'nama', 'skor', 'tgl', 'id_periode', 'diterima']; // Tambahkan 'id_periode'
 
     // Additional configurations...
 
@@ -39,5 +39,10 @@ class HasilModel extends Model
     public function deleteHasil($id)
     {
         return $this->delete($id);
+    }
+
+    public function deleteHasilByPeriode($idPeriode)
+    {
+        return $this->where('id_periode', $idPeriode)->delete();
     }
 }

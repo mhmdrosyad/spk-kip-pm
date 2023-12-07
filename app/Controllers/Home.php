@@ -41,11 +41,9 @@ class Home extends BaseController
         $pemberkasanValues = $this->request->getPost('pemberkasan');
 
         // Ubah array menjadi string (misalnya, dengan pemisah koma)
-        $pemberkasan = implode(', ', $pemberkasanValues);
-        $totalPemberkasan = count($pemberkasanValues);
+        $pemberkasan = !empty($pemberkasanValues) ? implode(', ', $pemberkasanValues) : '0|Tidak Ada';;
+        // $totalPemberkasan = count($pemberkasanValues);
 
-        // Setelah itu, masukkan ke dalam array data yang akan disimpan
-        $id_periode = $this->request->getPost('id_periode');
         $data = [
             'nama' => $this->request->getPost('nama'),
             'pemberkasan' => $pemberkasan,
@@ -53,8 +51,7 @@ class Home extends BaseController
             'status' => $this->request->getPost('status_anak'),
             'pk_ortu' => $this->request->getPost('pekerjaan_ortu'),
             'ph_ortu' => $this->request->getPost('penghasilan_ortu'),
-            'tg_ortu' => $this->request->getPost('tanggungan_ortu'),
-            'id_periode' => ($id_periode !== null) ? $id_periode : 0,
+            'tg_ortu' => $this->request->getPost('tanggungan_ortu')
         ];
 
         // Insert the data into the database using the SiswaModel
@@ -133,13 +130,14 @@ class Home extends BaseController
 
     public function processData()
     {
+        $id_periode = $this->request->getPost('id_periode');
+        $jml_diterima = $this->request->getPost('jml_diterima');
         // Load the SiswaModel
         $siswaModel = new SiswaModel();
         $hasilModel = new HasilModel();
 
         // Fetch all data from the SiswaModel
         $siswaData = $siswaModel->findAll();
-        $hasilData = $hasilModel->findAll();
 
         foreach ($siswaData as &$siswa) {
             foreach ($siswa as $key => $value) {
@@ -155,30 +153,31 @@ class Home extends BaseController
             }
         }
 
-
-        // Ambil kolom 'id' dari hasilData
-        $hasilDataIds = array_column($hasilData, 'id');
-
-        // Temukan siswa yang id-nya tidak ada di hasilData
-        $siswaDataFiltered = array_filter($siswaData, function ($siswa) use ($hasilDataIds) {
-            return !in_array($siswa['id'], $hasilDataIds);
-        });
-
-
         // Lakukan perhitungan jika ada siswa yang belum ada di hasilData
-        if (!empty($siswaDataFiltered)) {
-            $hasilPerhitungan = $this->hitungProfileMatching($siswaDataFiltered);
+        if (!empty($siswaData)) {
+            $existingData = $hasilModel->where('id_periode', $id_periode)->findAll();
 
-            foreach ($hasilPerhitungan as $hasil) {
+            // Jika ada, hapus semua data terkait dengan $id_periode
+            if (!empty($existingData)) {
+                foreach ($existingData as $data) {
+                    $hasilModel->delete($data['id']);
+                }
+            }
+
+            $hasilPerhitungan = $this->hitungProfileMatching($siswaData);
+
+            usort($hasilPerhitungan, function ($a, $b) {
+                return $b['skor'] <=> $a['skor'];
+            });
+
+            foreach ($hasilPerhitungan as $key => $hasil) {
                 // Ambil id_periode dari siswa (sesuaikan dengan struktur data Anda)
-                $idPeriode = $hasil['id_periode'];
-
                 $dataHasil = [
-                    'id' => $hasil['id'],
                     'nama' => $hasil['nama'],
                     'skor' => $hasil['skor'],
                     'tgl'  => date('Y-m-d H:i:s'), // Tambahkan tanggal saat ini
-                    'id_periode' => $idPeriode, // Tambahkan id_periode
+                    'id_periode' => $id_periode,
+                    'diterima' => $key < $jml_diterima ? 'YA' : 'TIDAK', // Tambahkan id_periode
                 ];
 
                 $hasilModel->insertHasil($dataHasil);
@@ -187,10 +186,10 @@ class Home extends BaseController
             // Set flash data untuk notifikasi
             // Set flash data untuk notifikasi dengan link ke halaman hasil
             $session = session();
-            $session->setFlashdata('success', 'Perhitungan berhasil dilakukan. <a href="' . base_url('/hasil') . '">Lihat hasil</a>');
+            $session->setFlashdata('success', 'Perhitungan berhasil dilakukan.');
 
             // Redirect kembali ke halaman index
-            return redirect()->to(base_url('/'));
+            return redirect()->to(base_url('/hasil-by-periode/' . $id_periode));
         } else {
             return redirect()->to(base_url('/'));
         }
@@ -260,7 +259,6 @@ class Home extends BaseController
                 'id' => $data['id'],
                 'nama' => $data['nama'],
                 'skor' => $coreFactor + $secondaryFactor,
-                'id_periode' => $data['id_periode'],
             ];
         }
 
@@ -278,20 +276,45 @@ class Home extends BaseController
         // Load the HasilModel
         $hasilModel = new HasilModel();
 
-        // Load the PeriodeModel
-        $periodeModel = new PeriodeModel();
-
         // Fetch selected periode (if any)
         $selectedPeriode = $this->request->getPost('filterPeriode');
 
         // Fetch all hasil data from the database with optional periode filter
         $hasilPerhitungan = $hasilModel->getAllHasilWithPeriode($selectedPeriode);
 
+        // Load the view and pass the hasil data
+        if ($this->request->isAJAX()) {
+            return view('_hasil_table', ['hasilPerhitungan' => $hasilPerhitungan]);
+        } else {
+            // Fetch all periode data from the database
+            $periodeModel = new PeriodeModel();
+            $periodeOptions = $periodeModel->getAllPeriode();
+
+            // Load the view and pass the hasil data and periode options
+            return view('hasil', ['hasilPerhitungan' => $hasilPerhitungan, 'periodeOptions' => $periodeOptions]);
+        }
+    }
+
+
+    public function hasilByPeriode($id)
+    {
+        // Load the HasilModel
+        $hasilModel = new HasilModel();
+
+        // Load the PeriodeModel
+        $periodeModel = new PeriodeModel();
+
+        // Fetch selected periode (if any)
+        $selectedPeriode = $id;
+
+        // Fetch all hasil data from the database with optional periode filter
+        $hasilPerhitungan = $hasilModel->getAllHasilWithPeriode($selectedPeriode);
+
         // Fetch all periode data from the database
-        $periodeOptions = $periodeModel->getAllPeriode();
+        $periodeOptions = $periodeModel->find($selectedPeriode);
 
         // Load the view and pass the hasil data and periode options
-        return view('hasil', ['hasilPerhitungan' => $hasilPerhitungan, 'periodeOptions' => $periodeOptions]);
+        return view('hasil_periode', ['hasilPerhitungan' => $hasilPerhitungan, 'periodeOptions' => $periodeOptions]);
     }
 
     // HomeController.php
@@ -307,11 +330,12 @@ class Home extends BaseController
     }
 
 
-    public function deleteHasil($id)
+    public function deleteHasil()
     {
+        $idPeriode = $this->request->getPost('id_periode');
         // Panggil model untuk menghapus data hasil berdasarkan ID
         $hasilModel = new HasilModel();
-        $hasilModel->deleteHasil($id);
+        $hasilModel->deleteHasilByPeriode($idPeriode);
 
         // Set success flash message
         $session = session();
@@ -321,20 +345,54 @@ class Home extends BaseController
         return redirect()->to(base_url('/hasil'))->with('success', 'Data hasil berhasil dihapus.');
     }
 
-    public function login()
+    public function tambahPeriode()
     {
-        return view('login');
-    }
-    public function proseslogin()
-    {
-        return view('index');
-    }
-    public function logout()
-    {
-        // Lakukan aksi logout disini
-        // ...
+        $periodeModel = new PeriodeModel();
+        $periodeOptions = $periodeModel->getAllPeriode();
 
-        // Kemudian kembalikan view login
-        return view('login');
+        return view('tambah_periode', ['periodeOptions' => $periodeOptions]);
+    }
+    public function addPeriode()
+    {
+        $namaPeriode = $this->request->getPost('nama_periode');
+        $periodeModel = new PeriodeModel();
+
+        $data = [
+            'periode' => $namaPeriode,
+        ];
+
+        $periodeModel->insert($data);
+        $session = session();
+        $session->setFlashdata('success', 'Data hasil berhasil ditambah.');
+
+        // Redirect kembali ke halaman hasil
+        return redirect()->to(base_url('/tambah-periode'))->with('success', 'Data hasil berhasil ditambah.');
+    }
+
+    public function deletePeriode($id)
+    {
+        $hasilModel = new HasilModel();
+        $PeriodeModel = new PeriodeModel();
+
+        $hasilModel->deleteHasilByPeriode($id);
+        $PeriodeModel->delete($id);
+
+        // Set success flash message
+        $session = session();
+        $session->setFlashdata('success', 'Data berhasil dihapus.');
+
+        // Redirect kembali ke halaman index
+        return redirect()->to(base_url('/tambah-periode'))->with('success', 'Data berhasil dihapus.');
+    }
+
+    public function deleteAll()
+    {
+        $siswaModel = new SiswaModel();
+        $siswaModel->truncate();
+        $session = session();
+        $session->setFlashdata('success', 'Data berhasil dihapus.');
+
+        // Redirect kembali ke halaman index
+        return redirect()->to(base_url('/'))->with('success', 'Data berhasil dihapus.');
     }
 }

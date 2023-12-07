@@ -31,18 +31,24 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/hasil', 'Home::hasil');
+$routes->post('/hasil', 'Home::hasil');
+$routes->get('/hasil-by-periode/(:segment)', 'Home::hasilByPeriode/$1');
 $routes->get('home/tambahdata', 'Home::tambahdata');
 $routes->post('home/tambahdata', 'Home::tambahdata');
 $routes->get('delete/(:num)', 'Home::deleteData/$1');
+$routes->get('delete-periode/(:num)', 'Home::deletePeriode/$1');
 $routes->post('/updateData', 'Home::updateData');
 $routes->post('home/processData', 'Home::processData');
-$routes->get('home/deletehasil/(:segment)', 'Home::deleteHasil/$1');
+$routes->post('home/deletehasil', 'Home::deleteHasil');
 $routes->get('register', 'Auth::register');
 $routes->post('register', 'Auth::attemptRegister');
 $routes->get('login', 'Auth::login');
 $routes->post('login', 'Auth::attemptLogin');
 $routes->get('logout', 'Auth::logout');
 $routes->get('/edit/(:num)', 'Home::edit/$1');
+$routes->get('/tambah-periode', 'Home::tambahPeriode');
+$routes->post('/tambah-periode', 'Home::addPeriode');
+$routes->get('/delete-all', 'Home::deleteAll');
 
 
 

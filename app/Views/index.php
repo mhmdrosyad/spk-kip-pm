@@ -48,10 +48,10 @@
                     <label for="inputPenghasilanOrtu">Penghasilan Orang Tua</label>
                     <select class="form-control" id="inputPenghasilanOrtu" name="penghasilan_ortu" required>
                         <option value="1|Tidak Bekerja">Tidak Bekerja</option>
-                        <option value="2|750.000">&lt;=750.000</option>
-                        <option value="3|1.250.000">&lt;=1.250.000</option>
-                        <option value="4|2.000.000">&lt;=2.000.000</option>
-                        <option value="5|3.000.000">&gt;=3.000.000</option>
+                        <option value="2|750.000">&le;750.000</option>
+                        <option value="3|1.250.000">&le;1.250.000</option>
+                        <option value="4|2.000.000">&le;2.000.000</option>
+                        <option value="5|3.000.000">&ge;3.000.000</option>
                     </select>
                 </div>
 
@@ -59,10 +59,10 @@
                     <label for="inputTanggunganOrtu">Tanggungan Orang Tua</label>
                     <select class="form-control" id="inputTanggunganOrtu" name="tanggungan_ortu" required>
                         <option value="1|1 Orang">1 Orang</option>
-                        <option value="2|2 Orang">&gt;=2 Orang</option>
-                        <option value="3|3 Orang">&gt;=3 Orang</option>
-                        <option value="4|5 Orang">&gt;=5 Orang</option>
-                        <option value="5|7 Orang">&gt;=7 Orang</option>
+                        <option value="2|2 Orang">&ge;2 Orang</option>
+                        <option value="3|3 Orang">&ge;3 Orang</option>
+                        <option value="4|5 Orang">&ge;5 Orang</option>
+                        <option value="5|7 Orang">&ge;7 Orang</option>
                     </select>
                 </div>
 
@@ -88,15 +88,7 @@
                     </select>
                 </div>
 
-                <div class="form-group col-md-2">
-                    <label for="inputNamaPeriode">Nama Periode</label>
-                    <select class="form-control" id="inputNamaPeriode" name="id_periode" required>
-                        <!-- Loop through periode options and create dropdown options -->
-                        <?php foreach ($periodeOptions as $periode) : ?>
-                            <option value="<?= $periode['id']; ?>"><?= $periode['periode']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+
 
 
 
@@ -118,7 +110,6 @@
             <th class="col-md-2">Pekerjaan ORTU</th>
             <th class="col-md-2">Penghasilan ORTU</th>
             <th class="col-md-2">Tanggungan ORTU</th>
-            <th class="col-md-2">Periode</th>
             <th class="col-md-2">Aksi</th>
         </tr>
     </thead>
@@ -135,9 +126,11 @@
                 <td class="editable"><?= $data['status'] ?></td>
                 <td class="editable"><?= $data['pk_ortu'] ?></td>
                 <td class="editable">
-                    <= <?= $data['ph_ortu'] ?></td>
-                <td class="editable"> >= <?= $data['tg_ortu'] ?></td>
-                <td class="editable"><?= $data['periode'] ?></td>
+                    <?php if ($data['ph_ortu'] !== 'Tidak Bekerja') : ?>
+                        &le;
+                    <?php endif; ?>
+                    <?= $data['ph_ortu'] ?>
+                <td class="editable"> &ge; <?= $data['tg_ortu'] ?></td>
 
 
                 <td class="td-actions d-flex justify-content-center">
@@ -158,21 +151,31 @@
         }
         ?>
     </tbody>
-    <div class="mb-3">
-        <label for="filterPeriode">Hapus Data:</label>
-        <select id="filterPeriode" class="form-select">
-            <!-- Isi dengan opsi-opsi periode dari data yang Anda miliki -->
-            <option value="">Semua Periode</option>
-            <option value="periode1">Periode 1</option>
-            <option value="periode2">Periode 2</option>
-            <!-- Tambahkan opsi sesuai dengan data periode yang Anda miliki -->
-        </select>
-        <button id="btn-delete-selected" class="btn btn-danger btn-sm" onclick="deleteSelected()">Hapus Terpilih</button>
+    <div class="mb-3 text-right">
+        <a href="/delete-all" id="btn-delete-selected" class="btn btn-danger btn-sm">Hapus Semua Data</a>
     </div>
 
 </table>
-<form action="<?= base_url('home/processData') ?>" method="post">
-    <button type="submit" class="btn btn-success mt-6">Proses</button>
+<form class="pb-3" action="<?= base_url('home/processData') ?>" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="inputNamaPeriode">Periode</label>
+            <select class="form-control" id="inputNamaPeriode" name="id_periode" required>
+                <!-- Loop through periode options and create dropdown options -->
+                <?php foreach (array_reverse($periodeOptions) as $periode) : ?>
+                    <option value="<?= $periode['id']; ?>"><?= $periode['periode']; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputNama">Jumlah Mahasiswa diterima</label>
+            <div class="form-inline">
+                <input type="number" class="form-control" id="jmlDiterima" name="jml_diterima" required>
+                <button type="submit" class="ml-2 btn btn-success">Proses</button>
+            </div>
+        </div>
+
+    </div>
 </form>
 
 </div>
