@@ -17,7 +17,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th class="border-right">No</th>
-                        <th>Nama Siswa</th>
+                        <th>Nama Mahasiswa</th>
                         <th>Skor</th>
                         <th>Periode</th>
                         <th>Diterima</th> <!-- Tambahkan kolom aksi -->

@@ -156,8 +156,24 @@ class Home extends BaseController
 
         // Fetch all data from the SiswaModel
         $siswaData = $siswaModel->findAll();
+        $siswaDataAsli = $siswaModel->findAll();
+        $siswaDataSkor = $siswaDataAsli;
 
         foreach ($siswaData as &$siswa) {
+            foreach ($siswa as $key => $value) {
+                // Jika key adalah "pemberkasan", menjumlahkan nilai di dalamnya
+                if ($key === "pemberkasan") {
+                    $matches = [];
+                    preg_match_all("/(\d+)\|/", $value, $matches);
+                    $jumlah = array_sum($matches[1]);
+                    $siswa[$key] = $jumlah;
+                } else {
+                    $siswa[$key] = strtok($value, "|");
+                }
+            }
+        }
+
+        foreach ($siswaDataSkor as &$siswa) {
             foreach ($siswa as $key => $value) {
                 // Jika key adalah "pemberkasan", menjumlahkan nilai di dalamnya
                 if ($key === "pemberkasan") {
@@ -182,36 +198,196 @@ class Home extends BaseController
                 }
             }
 
-            $hasilPerhitungan = $this->hitungProfileMatching($siswaData);
+            $hasilGAP = $this->hitungGAP($siswaData);
+            $hasilPembobotan = $this->hitungBobot($hasilGAP);
+            $hasilNCF = $this->hitungNCF($hasilPembobotan);
+            $hasilNSF = $this->hitungNSF($hasilNCF);
+            $nilaiTotal = $this->hitungTotal($hasilNSF);
+            $hasilProfileMatching = $this->hasilProfileMatching($nilaiTotal, $id_periode, $jml_diterima);
 
-            usort($hasilPerhitungan, function ($a, $b) {
-                return $b['skor'] <=> $a['skor'];
-            });
-
-            foreach ($hasilPerhitungan as $key => $hasil) {
+            foreach ($hasilProfileMatching as $hasil) {
                 // Ambil id_periode dari siswa (sesuaikan dengan struktur data Anda)
                 $dataHasil = [
                     'nama' => $hasil['nama'],
                     'skor' => $hasil['skor'],
-                    'tgl'  => date('Y-m-d H:i:s'), // Tambahkan tanggal saat ini
-                    'id_periode' => $id_periode,
-                    'diterima' => $key < $jml_diterima ? 'YA' : 'TIDAK', // Tambahkan id_periode
+                    'tgl'  => $hasil['tgl'], // Tambahkan tanggal saat ini
+                    'id_periode' => $hasil['id_periode'],
+                    'diterima' => $hasil['diterima'], // Tambahkan id_periode
                 ];
 
                 $hasilModel->insertHasil($dataHasil);
             }
 
+            // usort($hasilPerhitungan, function ($a, $b) {
+            //     return $b['skor'] <=> $a['skor'];
+            // });
+
+            // foreach ($hasilPerhitungan as $key => $hasil) {
+            //     // Ambil id_periode dari siswa (sesuaikan dengan struktur data Anda)
+            //     $dataHasil = [
+            //         'nama' => $hasil['nama'],
+            //         'skor' => $hasil['skor'],
+            //         'tgl'  => date('Y-m-d H:i:s'), // Tambahkan tanggal saat ini
+            //         'id_periode' => $id_periode,
+            //         'diterima' => $key < $jml_diterima ? 'YA' : 'TIDAK', // Tambahkan id_periode
+            //     ];
+
+            //     $hasilModel->insertHasil($dataHasil);
+            // }
+
             // Set flash data untuk notifikasi
             // Set flash data untuk notifikasi dengan link ke halaman hasil
-            $session = session();
-            $session->setFlashdata('success', 'Perhitungan berhasil dilakukan.');
+            // $session = session();
+            // $session->setFlashdata('success', 'Perhitungan berhasil dilakukan.');
 
             // Redirect kembali ke halaman index
-            return redirect()->to(base_url('/hasil-by-periode/' . $id_periode));
+            // return redirect()->to(base_url('/hasil-by-periode/' . $id_periode))
+            //     ->with('hasilPembobotan', $hasilPembobotan)
+            //     ->with('hasilNCF', $hasilNCF)
+            //     ->with('hasilNSF', $hasilNSF)
+            //     ->with('nilaiTotal', $nilaiTotal)
+            //     ->with('hasilProfileMatching', $hasilProfileMatching);
+
+            $hasilModel = new HasilModel();
+
+            // Load the PeriodeModel
+            $periodeModel = new PeriodeModel();
+
+            // Fetch selected periode (if any)
+            $selectedPeriode = $id_periode;
+
+            // Fetch all periode data from the database
+            $periodeOptions = $periodeModel->find($selectedPeriode);
+            $hasilPerhitungan = $hasilModel->getAllHasilWithPeriode($selectedPeriode);
+
+            // Load the view and pass the hasil data and periode options
+            return view('hasil_periode', ['dataSiswa' => $siswaDataAsli, 'dataSiswaSkor' => $siswaDataSkor, 'periodeOptions' => $periodeOptions, 'hasilGAP' => $hasilGAP, 'hasilPembobotan' => $hasilPembobotan, 'hasilNCF' => $hasilNCF, 'hasilNSF' => $hasilNSF, 'nilaiTotal' => $nilaiTotal, 'hasilPerhitungan' => $hasilPerhitungan, 'jmlDiterima' => $jml_diterima]);
         } else {
             return redirect()->to(base_url('/'));
         }
     }
+
+    private function hitungGAP($siswaData)
+    {
+        $nilaiTarget = [
+            'pemberkasan' => 4,
+            'prestasi' => 5,
+            'status' => 5,
+            'pk_ortu' => 1,
+            'ph_ortu' => 1,
+            'tg_ortu' => 5,
+        ];
+
+        foreach ($siswaData as &$data) {
+            // Menghitung jarak Euclidean untuk setiap kriteria
+            foreach ($nilaiTarget as $key => $target) {
+                if ($key !== 'id' && $key !== 'nama') {
+                    // Menggunakan bobot selisih sesuai dengan kriteria
+                    $data[$key] = $data[$key] - $target;
+                }
+            }
+        }
+
+        return $siswaData;
+    }
+
+    private function hitungBobot($hasilGAP)
+    {
+        $bobotSelisih = [
+            0 => 5.0,
+            1 => 4.5,
+            -1 => 4.0,
+            2 => 3.5,
+            -2 => 3.0,
+            3 => 2.5,
+            -3 => 2.0,
+            4 => 1.5,
+            -4 => 1.0,
+        ];
+
+        foreach ($hasilGAP as &$data) {
+            foreach ($data as $key => $value) {
+                if ($key !== 'id' && $key !== 'nama') {
+                    $data[$key] = abs($bobotSelisih[$value]);
+                }
+            }
+        }
+
+        return $hasilGAP;
+    }
+
+    private function hitungNCF($hasilPembobotan)
+    {
+        $coreFactor = ["pemberkasan", "status", "pk_ortu", "ph_ortu"];
+        $total = 0;
+
+        foreach ($hasilPembobotan as &$data) {
+
+            foreach ($coreFactor as $atribut) {
+                // Tambahkan nilai atribut ke total
+                $total += $data[$atribut];
+            }
+
+            $data['NCF'] = $total / 4;
+        }
+        return $hasilPembobotan;
+    }
+
+    private function hitungNSF($hasilPembobotan)
+    {
+        $coreFactor = ["tg_ortu", "prestasi"];
+        $total = 0;
+
+        foreach ($hasilPembobotan as &$data) {
+
+            foreach ($coreFactor as $atribut) {
+                // Tambahkan nilai atribut ke total
+                $total += $data[$atribut];
+            }
+
+            $data['NSF'] = $total / 2;
+        }
+        return $hasilPembobotan;
+    }
+
+    private function hitungTotal($nilai)
+    {
+        $bobotCoreFactor = 0.7; // 70%
+        $bobotSecondaryFactor = 0.3; // 30%
+
+        foreach ($nilai as &$data) {
+            $coreFactor = $data['NCF'] * $bobotCoreFactor;
+            $secondaryFactor = $data['NSF'] * $bobotSecondaryFactor;
+
+            $skorSiswa[] = [
+                'id' => $data['id'],
+                'nama' => $data['nama'],
+                'skor' => $coreFactor + $secondaryFactor,
+            ];
+        }
+
+        usort($skorSiswa, function ($a, $b) {
+            return $b['skor'] <=> $a['skor'];
+        });
+
+        return $skorSiswa;
+    }
+
+    private function hasilProfileMatching($nilaiTotal, $id_periode, $jml_diterima)
+    {
+        foreach ($nilaiTotal as $key => $hasil) {
+            // Ambil id_periode dari siswa (sesuaikan dengan struktur data Anda)
+            $dataHasil[] = [
+                'nama' => $hasil['nama'],
+                'skor' => $hasil['skor'],
+                'tgl'  => date('Y-m-d H:i:s'), // Tambahkan tanggal saat ini
+                'id_periode' => $id_periode,
+                'diterima' => $key < $jml_diterima ? 'YA' : 'TIDAK', // Tambahkan id_periode
+            ];
+        }
+        return $dataHasil;
+    }
+
 
     private function hitungProfileMatching($siswaData)
     {
