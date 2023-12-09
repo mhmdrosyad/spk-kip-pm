@@ -206,7 +206,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($hasilNCF as $index => $data) : ?>
+                    foreach ($hasilNF as $index => $data) : ?>
                         <tr>
                             <td><?= $index + 1 ?></td>
                             <td><?= $data['nama'] ?></td>
@@ -228,11 +228,11 @@
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($hasilNSF as $index => $data) : ?>
+                    foreach ($hasilNF as $index => $data) : ?>
                         <tr>
                             <td><?= $index + 1 ?></td>
                             <td><?= $data['nama'] ?></td>
-                            <td><?= $data['NCF'] ?></td>
+                            <td><?= $data['NSF'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -240,7 +240,7 @@
             </table>
         </div>
         <h2 class="h4 mb-4 text-gray-800">6. Hitung Nilai Total</h2>
-        <p>NCF(60%) + NSF(40%)</p>
+        <p>NCF(70%) + NSF(30%)</p>
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead class="thead-dark">

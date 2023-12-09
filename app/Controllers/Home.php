@@ -200,9 +200,8 @@ class Home extends BaseController
 
             $hasilGAP = $this->hitungGAP($siswaData);
             $hasilPembobotan = $this->hitungBobot($hasilGAP);
-            $hasilNCF = $this->hitungNCF($hasilPembobotan);
-            $hasilNSF = $this->hitungNSF($hasilNCF);
-            $nilaiTotal = $this->hitungTotal($hasilNSF);
+            $hasilNF = $this->hitungNilaiFactor($hasilPembobotan);
+            $nilaiTotal = $this->hitungTotal($hasilNF);
             $hasilProfileMatching = $this->hasilProfileMatching($nilaiTotal, $id_periode, $jml_diterima);
 
             foreach ($hasilProfileMatching as $hasil) {
@@ -261,7 +260,7 @@ class Home extends BaseController
             $hasilPerhitungan = $hasilModel->getAllHasilWithPeriode($selectedPeriode);
 
             // Load the view and pass the hasil data and periode options
-            return view('hasil_periode', ['dataSiswa' => $siswaDataAsli, 'dataSiswaSkor' => $siswaDataSkor, 'periodeOptions' => $periodeOptions, 'hasilGAP' => $hasilGAP, 'hasilPembobotan' => $hasilPembobotan, 'hasilNCF' => $hasilNCF, 'hasilNSF' => $hasilNSF, 'nilaiTotal' => $nilaiTotal, 'hasilPerhitungan' => $hasilPerhitungan, 'jmlDiterima' => $jml_diterima]);
+            return view('hasil_periode', ['dataSiswa' => $siswaDataAsli, 'dataSiswaSkor' => $siswaDataSkor, 'periodeOptions' => $periodeOptions, 'hasilGAP' => $hasilGAP, 'hasilPembobotan' => $hasilPembobotan, 'hasilNF' => $hasilNF, 'nilaiTotal' => $nilaiTotal, 'hasilPerhitungan' => $hasilPerhitungan, 'jmlDiterima' => $jml_diterima]);
         } else {
             return redirect()->to(base_url('/'));
         }
@@ -316,39 +315,33 @@ class Home extends BaseController
         return $hasilGAP;
     }
 
-    private function hitungNCF($hasilPembobotan)
+    private function hitungNilaiFactor($hasilPembobotan)
     {
         $coreFactor = ["pemberkasan", "status", "pk_ortu", "ph_ortu"];
-        $total = 0;
+        $secFactor = ["tg_ortu", "prestasi"];
 
         foreach ($hasilPembobotan as &$data) {
+            $totalCore = 0;
+            $totalSec = 0;
 
             foreach ($coreFactor as $atribut) {
-                // Tambahkan nilai atribut ke total
-                $total += $data[$atribut];
+                // Tambahkan nilai atribut ke total core factor
+                $totalCore += $data[$atribut];
             }
 
-            $data['NCF'] = $total / 4;
+            foreach ($secFactor as $atribut) {
+                // Tambahkan nilai atribut ke total secondary factor
+                $totalSec += $data[$atribut];
+            }
+
+            $data['NCF'] = $totalCore / count($coreFactor);
+            $data['NSF'] = $totalSec / count($secFactor);
         }
+
         return $hasilPembobotan;
     }
 
-    private function hitungNSF($hasilPembobotan)
-    {
-        $coreFactor = ["tg_ortu", "prestasi"];
-        $total = 0;
 
-        foreach ($hasilPembobotan as &$data) {
-
-            foreach ($coreFactor as $atribut) {
-                // Tambahkan nilai atribut ke total
-                $total += $data[$atribut];
-            }
-
-            $data['NSF'] = $total / 2;
-        }
-        return $hasilPembobotan;
-    }
 
     private function hitungTotal($nilai)
     {
